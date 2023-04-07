@@ -25,6 +25,7 @@ impl Default for Player {
     }
 }
 
+
 impl Player {
     fn new(name: String, piece: char, repr: u8) -> Self {
         Self {
@@ -33,11 +34,10 @@ impl Player {
     }
 }
 
-#[derive(Debug)]
 struct Game {
     winner: Player,
     players: Vec<Player>,
-    board: Vec<u8>,
+    board: Vec<u8>,  
 }
 
 impl Game {
@@ -55,6 +55,7 @@ impl Game {
     }
 
     fn set_winner(&mut self, repr: u8) {
+        // set the winner to whatever corresponding player uses the passed in repr
         self.winner = self.players.iter().find(|p| p.repr == repr).map(|f| f).unwrap().clone();
     }
 
